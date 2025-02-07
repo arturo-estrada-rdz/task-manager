@@ -2,8 +2,13 @@ import { ITask, TaskInput } from './task';
 
 export interface ITaskRepository {
   findAll(userId: string): Promise<ITask[]>;
-  findById(id: string): Promise<ITask | null>;
+  findById(id: string, user: string): Promise<ITask | null>;
   create(task: TaskInput): Promise<ITask>;
-  update(id: string, task: Partial<ITask>): Promise<ITask | null>;
-  delete(id: string): Promise<ITask | null>;
+  update(id: string, user: string, task: Partial<ITask>): Promise<ITask | null>;
+  updateField(
+    id: string,
+    user: string,
+    keyValuePair: { [key: string]: string | boolean }
+  ): Promise<ITask | null>;
+  delete(id: string, user: string): Promise<ITask | null>;
 }
