@@ -1,5 +1,6 @@
-import User, { IUser, UserInput } from './user';
+import User from './user';
 import { IUserRepository } from './user.repository';
+import { IUser, UserInput } from './user.types';
 
 export class UserRepository implements IUserRepository {
   findAll(): Promise<IUser[]> {

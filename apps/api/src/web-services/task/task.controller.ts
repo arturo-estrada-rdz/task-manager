@@ -48,6 +48,8 @@ export class TaskController {
 
       return res.status(201).json(task);
     } catch (err) {
+      if (err.name === 'CastError' && err.kind === 'ObjectId')
+        return res.status(400).json({ error: 'Invalid ID format' });
       return res.status(500).json({ error: err.message });
     }
   }

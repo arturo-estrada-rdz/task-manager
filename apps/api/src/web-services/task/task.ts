@@ -1,16 +1,7 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
+import { ITask } from './task.types';
 
-export type TaskInput = {
-  user: mongoose.Types.ObjectId;
-  title: string;
-  description?: string;
-  dueDate?: Date;
-  completed: boolean;
-};
-
-export interface ITask extends TaskInput, Document {}
-
-const TaskSchema = new mongoose.Schema<ITask>({
+const TaskSchema = new Schema<ITask>({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   title: { type: String, required: true },
   description: String,
@@ -18,4 +9,4 @@ const TaskSchema = new mongoose.Schema<ITask>({
   completed: { type: Boolean, default: false },
 });
 
-export default mongoose.model<ITask>('Task', TaskSchema);
+export default model<ITask>('Task', TaskSchema);

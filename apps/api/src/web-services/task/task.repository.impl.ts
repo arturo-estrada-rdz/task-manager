@@ -1,6 +1,7 @@
 import { Types } from 'mongoose';
-import Task, { ITask, TaskInput } from './task';
+import Task from './task';
 import { ITaskRepository } from './task.repository';
+import { ITask, TaskInput } from './task.types';
 
 export class TaskRepository implements ITaskRepository {
   async findAll(userId: string): Promise<ITask[]> {

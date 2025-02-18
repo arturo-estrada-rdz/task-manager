@@ -1,4 +1,4 @@
-import { IUser, UserInput } from './user';
+import { IUser, UserInput } from './user.types';
 
 export interface IUserRepository {
   findAll(): Promise<IUser[]>;

@@ -1,4 +1,4 @@
-import { ITask, TaskInput } from './task';
+import { ITask, TaskInput } from './task.types';
 
 export interface ITaskRepository {
   findAll(userId: string): Promise<ITask[]>;
